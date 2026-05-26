@@ -64,6 +64,56 @@
     });
   }
 
+  var teamTrack = document.querySelector("[data-team-track]");
+
+  if (teamTrack) {
+    var prevTeamBtn = document.querySelector("[data-team-prev]");
+    var nextTeamBtn = document.querySelector("[data-team-next]");
+
+    function getTeamStep() {
+      var card = teamTrack.querySelector(".team-card");
+      if (!card) {
+        return teamTrack.clientWidth;
+      }
+
+      var styles = getComputedStyle(teamTrack);
+      var gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateTeamButtons() {
+      var maxScroll = teamTrack.scrollWidth - teamTrack.clientWidth - 2;
+
+      if (prevTeamBtn) {
+        prevTeamBtn.disabled = teamTrack.scrollLeft <= 2;
+      }
+
+      if (nextTeamBtn) {
+        nextTeamBtn.disabled = teamTrack.scrollLeft >= maxScroll;
+      }
+    }
+
+    if (prevTeamBtn) {
+      prevTeamBtn.addEventListener("click", function () {
+        teamTrack.scrollBy({ left: -getTeamStep(), behavior: "smooth" });
+      });
+    }
+
+    if (nextTeamBtn) {
+      nextTeamBtn.addEventListener("click", function () {
+        teamTrack.scrollBy({ left: getTeamStep(), behavior: "smooth" });
+      });
+    }
+
+    teamTrack.addEventListener("scroll", function () {
+      window.requestAnimationFrame(updateTeamButtons);
+    });
+
+    window.addEventListener("resize", updateTeamButtons);
+    updateTeamButtons();
+  }
+
   var revealElements = document.querySelectorAll(".reveal");
 
   if (!("IntersectionObserver" in window)) {
