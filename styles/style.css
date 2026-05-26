@@ -1494,17 +1494,16 @@ body.gallery-modal-open {
 }
 .team-specs-label {
   display: block;
-  font-size: 10px;
-  letter-spacing: 0.2em;
+  font-size: 10.5px;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--rose-700);
-  font-weight: 500;
+  color: var(--rose-800);
+  font-weight: 700;
   margin-bottom: 8px;
 }
 .team-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 14px;
+  display: grid;
+  gap: 5px;
   list-style: none;
   padding: 0; margin: 0;
 }
@@ -1512,15 +1511,16 @@ body.gallery-modal-open {
   font-size: 12px;
   color: var(--rose-700);
   position: relative;
-  padding: 0;
+  padding: 0 0 0 14px;
   border: 0;
   background: transparent;
 }
-.team-tags li + li::before {
-  content: "/";
+.team-tags li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
   color: var(--rose-400);
-  margin-right: 14px;
-  margin-left: -8px;
 }
 
 .team-quote {
@@ -1541,6 +1541,7 @@ body.gallery-modal-open {
   gap: 10px;
   margin-top: auto;
   padding: 0 22px;
+  padding-top: 18px;
 }
 @media (max-width: 560px) {
   .team-actions { padding: 0 18px; }
