@@ -110,6 +110,13 @@ button { font-family: inherit; cursor: pointer; }
   max-width: 480px;
   text-wrap: pretty;
 }
+.section-head .intro a {
+  color: var(--rose-700);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.section-head .intro a:hover { color: var(--rose-800); }
 
 /* =========================================================
    BUTTONS
