@@ -114,6 +114,110 @@
     updateTeamButtons();
   }
 
+  var gallery = document.querySelector("[data-gallery]");
+  var galleryModal = document.querySelector("[data-gallery-modal]");
+
+  if (gallery && galleryModal) {
+    var galleryItems = Array.prototype.map.call(gallery.querySelectorAll(".gallery-trigger"), function (trigger) {
+      var image = trigger.querySelector("img");
+      var caption = trigger.querySelector(".caption");
+
+      return {
+        trigger: trigger,
+        src: image ? image.getAttribute("src") : "",
+        alt: image ? image.getAttribute("alt") : "",
+        caption: caption ? caption.textContent.trim() : "",
+      };
+    });
+    var modalImage = galleryModal.querySelector("[data-gallery-modal-image]");
+    var modalCaption = galleryModal.querySelector("[data-gallery-modal-caption]");
+    var closeGalleryBtn = galleryModal.querySelector("[data-gallery-close]");
+    var prevGalleryBtn = galleryModal.querySelector("[data-gallery-prev]");
+    var nextGalleryBtn = galleryModal.querySelector("[data-gallery-next]");
+    var currentGalleryIndex = 0;
+
+    function setGalleryImage(index) {
+      currentGalleryIndex = (index + galleryItems.length) % galleryItems.length;
+      var item = galleryItems[currentGalleryIndex];
+
+      modalImage.setAttribute("src", item.src);
+      modalImage.setAttribute("alt", item.alt);
+      modalCaption.textContent = item.caption;
+    }
+
+    function openGallery(index) {
+      setGalleryImage(index);
+      galleryModal.classList.add("is-open");
+      galleryModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("gallery-modal-open");
+
+      if (closeGalleryBtn) {
+        closeGalleryBtn.focus();
+      }
+    }
+
+    function closeGallery() {
+      galleryModal.classList.remove("is-open");
+      galleryModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("gallery-modal-open");
+
+      var item = galleryItems[currentGalleryIndex];
+      if (item && item.trigger) {
+        item.trigger.focus();
+      }
+    }
+
+    function showPrevGalleryImage() {
+      setGalleryImage(currentGalleryIndex - 1);
+    }
+
+    function showNextGalleryImage() {
+      setGalleryImage(currentGalleryIndex + 1);
+    }
+
+    galleryItems.forEach(function (item, index) {
+      item.trigger.addEventListener("click", function () {
+        openGallery(index);
+      });
+    });
+
+    if (closeGalleryBtn) {
+      closeGalleryBtn.addEventListener("click", closeGallery);
+    }
+
+    if (prevGalleryBtn) {
+      prevGalleryBtn.addEventListener("click", showPrevGalleryImage);
+    }
+
+    if (nextGalleryBtn) {
+      nextGalleryBtn.addEventListener("click", showNextGalleryImage);
+    }
+
+    galleryModal.addEventListener("click", function (event) {
+      if (event.target === galleryModal) {
+        closeGallery();
+      }
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (!galleryModal.classList.contains("is-open")) {
+        return;
+      }
+
+      if (event.key === "Escape") {
+        closeGallery();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPrevGalleryImage();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNextGalleryImage();
+      }
+    });
+  }
+
   var revealElements = document.querySelectorAll(".reveal");
 
   if (!("IntersectionObserver" in window)) {
