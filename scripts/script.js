@@ -114,6 +114,56 @@
     updateTeamButtons();
   }
 
+  var testimonialTrack = document.querySelector("[data-testimonial-track]");
+
+  if (testimonialTrack) {
+    var prevTestimonialBtn = document.querySelector("[data-testimonial-prev]");
+    var nextTestimonialBtn = document.querySelector("[data-testimonial-next]");
+
+    function getTestimonialStep() {
+      var card = testimonialTrack.querySelector(".testimonial");
+      if (!card) {
+        return testimonialTrack.clientWidth;
+      }
+
+      var styles = getComputedStyle(testimonialTrack);
+      var gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
+
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateTestimonialButtons() {
+      var maxScroll = testimonialTrack.scrollWidth - testimonialTrack.clientWidth - 2;
+
+      if (prevTestimonialBtn) {
+        prevTestimonialBtn.disabled = testimonialTrack.scrollLeft <= 2;
+      }
+
+      if (nextTestimonialBtn) {
+        nextTestimonialBtn.disabled = testimonialTrack.scrollLeft >= maxScroll;
+      }
+    }
+
+    if (prevTestimonialBtn) {
+      prevTestimonialBtn.addEventListener("click", function () {
+        testimonialTrack.scrollBy({ left: -getTestimonialStep(), behavior: "smooth" });
+      });
+    }
+
+    if (nextTestimonialBtn) {
+      nextTestimonialBtn.addEventListener("click", function () {
+        testimonialTrack.scrollBy({ left: getTestimonialStep(), behavior: "smooth" });
+      });
+    }
+
+    testimonialTrack.addEventListener("scroll", function () {
+      window.requestAnimationFrame(updateTestimonialButtons);
+    });
+
+    window.addEventListener("resize", updateTestimonialButtons);
+    updateTestimonialButtons();
+  }
+
   var gallery = document.querySelector("[data-gallery]");
   var galleryModal = document.querySelector("[data-gallery-modal]");
 
