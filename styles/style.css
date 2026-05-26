@@ -13,6 +13,7 @@
   --rose-700:     #8A555C;
   --rose-800:     #6E444A;
   --champagne:    #C8A96A;
+  --fc-blue:      #005BFF;
   --ink:          #2B2B2B;
   --ink-soft:     #6F5E5E;
   --line:         rgba(43, 43, 43, 0.10);
@@ -1120,6 +1121,12 @@ button { font-family: inherit; cursor: pointer; }
   text-transform: uppercase;
   color: rgba(255,255,255,0.55);
 }
+.footer-bottom a {
+  color: var(--fc-blue);
+  font-weight: 700;
+  transition: color 200ms ease;
+}
+.footer-bottom a:hover { color: #4DA3FF; }
 
 /* =========================================================
    FLOATING WHATSAPP + MOBILE STICKY CTA
