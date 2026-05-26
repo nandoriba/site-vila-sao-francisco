@@ -87,6 +87,9 @@ button { font-family: inherit; cursor: pointer; }
   width: 32px; height: 1px;
   background: var(--rose-600);
 }
+.eyebrow.is-centered {
+  justify-content: center;
+}
 
 .section-head h2 {
   margin: 18px 0 0;
@@ -894,6 +897,9 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 22px;
   font-weight: 500;
 }
+.hours-card-title {
+  margin-top: 6px;
+}
 .hours-card .lbl, .contact-card .lbl {
   font-size: 11px;
   letter-spacing: 0.32em;
@@ -1101,6 +1107,7 @@ button { font-family: inherit; cursor: pointer; }
   transition: color 200ms ease;
 }
 .footer-col a:hover { color: #fff; }
+.footer-link-spaced { margin-top: 10px; }
 
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.10);

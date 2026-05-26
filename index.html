@@ -9,23 +9,26 @@
   <meta name="description" content="Conheça o Ateliê Villa São Francisco, salão de beleza no Open Mall Pátio Jaguaré, em São Paulo. Serviços de cabelo, unhas, sobrancelhas e depilação. Nota 4,9 no Google. Agende pelo WhatsApp." />
   <meta name="keywords" content="salão de beleza no Jaguaré, salão feminino no Jaguaré, cabeleireiro no Jaguaré, manicure no Jaguaré, pedicure no Jaguaré, design de sobrancelhas no Jaguaré, depilação no Jaguaré, salão de beleza em São Paulo, Open Mall Pátio Jaguaré, Ateliê Villa São Francisco" />
   <meta name="author" content="Ateliê Villa São Francisco" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#FAF7F5" />
   <link rel="canonical" href="https://ateliervillasf.com.br/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ateliervillasf.com.br/" />
   <meta property="og:site_name" content="Ateliê Villa São Francisco" />
   <meta property="og:title" content="Ateliê Villa São Francisco | Salão de Beleza no Jaguaré" />
   <meta property="og:description" content="Salão de beleza no Open Mall Pátio Jaguaré, em São Paulo. Cabelo, unhas, sobrancelhas e depilação. ⭐ 4,9 no Google · +158 avaliações." />
   <meta property="og:locale" content="pt_BR" />
-  <meta property="og:image" content="assets/hero-salao.webp" />
+  <meta property="og:image" content="https://ateliervillasf.com.br/assets/hero-salao.webp" />
+  <meta property="og:image:alt" content="Ambiente interno do Ateliê Villa São Francisco, salão de beleza no Jaguaré" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ateliê Villa São Francisco | Salão de Beleza no Jaguaré" />
   <meta name="twitter:description" content="Cabelo, unhas, sobrancelhas e depilação no Open Mall Pátio Jaguaré, em São Paulo." />
-  <meta name="twitter:image" content="assets/hero-salao.webp" />
+  <meta name="twitter:image" content="https://ateliervillasf.com.br/assets/hero-salao.webp" />
+  <meta name="twitter:image:alt" content="Ambiente interno do Ateliê Villa São Francisco, salão de beleza no Jaguaré" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/logo.png" />
@@ -36,9 +39,12 @@
   {
     "@context": "https://schema.org",
     "@type": "BeautySalon",
+    "@id": "https://ateliervillasf.com.br/#beautysalon",
     "name": "Ateliê Villa São Francisco",
+    "url": "https://ateliervillasf.com.br/",
     "description": "Salão de beleza no Open Mall Pátio Jaguaré, em São Paulo, com serviços de cabelo, unhas, sobrancelhas e depilação.",
-    "image": "assets/logo.png",
+    "image": "https://ateliervillasf.com.br/assets/hero-salao.webp",
+    "logo": "https://ateliervillasf.com.br/assets/logo.png",
     "telephone": "+55 11 97454-5543",
     "priceRange": "$$",
     "address": {
@@ -49,6 +55,9 @@
       "postalCode": "05339-004",
       "addressCountry": "BR"
     },
+    "areaServed": ["Jaguaré", "Vila São Francisco", "São Paulo"],
+    "hasMap": "https://www.google.com/maps/search/?api=1&query=Ateli%C3%AA%20Villa%20S%C3%A3o%20Francisco%2C%20Av.%20Corifeu%20de%20Azevedo%20Marques%205069%2C%20Jaguar%C3%A9%2C%20S%C3%A3o%20Paulo",
+    "openingHours": "Tu-Sa 09:00-18:00",
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
@@ -80,7 +89,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <script src="scripts/script.js" defer></script>
 </head>
 
 <body>
@@ -676,7 +686,7 @@
             <aside class="local-side">
               <div class="hours-card reveal" id="horarios">
                 <span class="lbl">— Horário de funcionamento</span>
-                <h3 style="margin-top: 6px;">De terça a sábado</h3>
+                <h3 class="hours-card-title">De terça a sábado</h3>
                 <div class="hours-list" id="hours-list">
                   <div class="row closed" data-idx="0"><span class="day">Segunda-feira</span><span class="time">Fechado</span></div>
                   <div class="row" data-idx="1"><span class="day">Terça-feira</span><span class="time">09:00 — 18:00</span></div>
@@ -716,7 +726,7 @@
       <!-- CTA FINAL -->
       <section class="section cta-final" id="agendar">
         <div class="inner reveal">
-          <span class="eyebrow with-line" style="justify-content: center;">
+          <span class="eyebrow with-line is-centered">
             Agendamento
           </span>
           <h2>Pronta para viver seu<br/>momento de <em>cuidado</em>?</h2>
@@ -757,7 +767,7 @@
             <li>Av. Corifeu de Azevedo Marques, 5069 — loja 1</li>
             <li>Jaguaré, São Paulo — SP</li>
             <li>CEP: 05339-004</li>
-            <li style="margin-top: 10px;">
+            <li class="footer-link-spaced">
               <a href="https://www.google.com/maps/search/?api=1&query=Ateli%C3%AA%20Villa%20S%C3%A3o%20Francisco%2C%20Av.%20Corifeu%20de%20Azevedo%20Marques%205069%2C%20Jaguar%C3%A9%2C%20S%C3%A3o%20Paulo" target="_blank" rel="noopener noreferrer">
                 Ver rota no Google Maps →
               </a>
@@ -771,7 +781,7 @@
             <li>WhatsApp: (11) 97454-5543</li>
             <li>Terça a sábado</li>
             <li>09h às 18h</li>
-            <li style="margin-top: 10px;">
+            <li class="footer-link-spaced">
               <a
                 href="https://wa.me/5511974545543?text=Ol%C3%A1!%20Vim%20pelo%20site%20do%20Ateli%C3%AA%20Villa%20S%C3%A3o%20Francisco%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio."
                 target="_blank" rel="noopener noreferrer"
@@ -828,139 +838,5 @@
     </a>
   </div>
 
-  <script>
-    (function () {
-      // Strip any stale hash to land on the top of the page on first load
-      var validHashes = ["#servicos", "#sobre", "#avaliacoes", "#localizacao", "#agendar", "#galeria", "#diferenciais", "#horarios", "#inicio"];
-      if (window.location.hash && validHashes.indexOf(window.location.hash) === -1) {
-        history.replaceState(null, "", " ");
-      }
-
-      // Footer year
-      var yearEl = document.getElementById("footer-year");
-      if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-      // Highlight today's row in the hours list
-      // JS Sun=0 → our Mon=0 mapping: [6, 0, 1, 2, 3, 4, 5]
-      var map = [6, 0, 1, 2, 3, 4, 5];
-      var todayIdx = map[new Date().getDay()];
-      var rows = document.querySelectorAll("#hours-list .row");
-      rows.forEach(function (row) {
-        var idx = parseInt(row.getAttribute("data-idx"), 10);
-        if (idx === todayIdx) {
-          row.classList.add("today");
-          var dayEl = row.querySelector(".day");
-          if (dayEl) dayEl.textContent = dayEl.textContent + " · hoje";
-        }
-      });
-
-      // Menu mobile (hamburguer)
-      var navToggle = document.querySelector("[data-nav-toggle]");
-      var navList = document.getElementById("nav-list");
-      if (navToggle && navList) {
-        function setNav(open) {
-          navToggle.setAttribute("aria-expanded", open ? "true" : "false");
-          navToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
-          navList.classList.toggle("is-open", open);
-        }
-        navToggle.addEventListener("click", function () {
-          setNav(navToggle.getAttribute("aria-expanded") !== "true");
-        });
-        navList.addEventListener("click", function (e) {
-          if (e.target.closest("a")) setNav(false);
-        });
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape") setNav(false);
-        });
-      }
-
-      // Carrossel de profissionais
-      var teamTrack = document.querySelector("[data-team-track]");
-      if (teamTrack) {
-        var prevBtn = document.querySelector("[data-team-prev]");
-        var nextBtn = document.querySelector("[data-team-next]");
-        var dotsWrap = document.querySelector("[data-team-dots]");
-        var cards = teamTrack.querySelectorAll(".team-card");
-
-        function pageSize() {
-          var first = cards[0];
-          if (!first) return teamTrack.clientWidth;
-          var styles = getComputedStyle(teamTrack);
-          var gap = parseFloat(styles.columnGap || styles.gap || "0") || 0;
-          return first.getBoundingClientRect().width + gap;
-        }
-        function pagesCount() {
-          var step = pageSize();
-          if (!step) return 1;
-          return Math.max(1, Math.ceil((teamTrack.scrollWidth - 1) / step) - Math.floor(teamTrack.clientWidth / step) + 1);
-        }
-        function currentPage() {
-          var step = pageSize();
-          if (!step) return 0;
-          return Math.round(teamTrack.scrollLeft / step);
-        }
-        function updateUI() {
-          var max = teamTrack.scrollWidth - teamTrack.clientWidth - 2;
-          if (prevBtn) prevBtn.disabled = teamTrack.scrollLeft <= 2;
-          if (nextBtn) nextBtn.disabled = teamTrack.scrollLeft >= max;
-          if (dotsWrap) {
-            var cur = currentPage();
-            Array.prototype.forEach.call(dotsWrap.children, function (d, i) {
-              d.setAttribute("aria-current", i === cur ? "true" : "false");
-            });
-          }
-        }
-        function buildDots() {
-          if (!dotsWrap) return;
-          dotsWrap.innerHTML = "";
-          var n = pagesCount();
-          if (n <= 1) { dotsWrap.style.display = "none"; return; }
-          dotsWrap.style.display = "";
-          for (var i = 0; i < n; i++) {
-            var b = document.createElement("button");
-            b.type = "button";
-            b.setAttribute("aria-label", "Ir para profissional " + (i + 1));
-            (function (idx) {
-              b.addEventListener("click", function () {
-                teamTrack.scrollTo({ left: idx * pageSize(), behavior: "smooth" });
-              });
-            })(i);
-            dotsWrap.appendChild(b);
-          }
-        }
-        if (prevBtn) prevBtn.addEventListener("click", function () {
-          teamTrack.scrollBy({ left: -pageSize(), behavior: "smooth" });
-        });
-        if (nextBtn) nextBtn.addEventListener("click", function () {
-          teamTrack.scrollBy({ left: pageSize(), behavior: "smooth" });
-        });
-        teamTrack.addEventListener("scroll", function () {
-          window.requestAnimationFrame(updateUI);
-        });
-        window.addEventListener("resize", function () {
-          buildDots();
-          updateUI();
-        });
-        buildDots();
-        updateUI();
-      }
-
-      // Reveal-on-scroll
-      var els = document.querySelectorAll(".reveal");
-      if (!("IntersectionObserver" in window)) {
-        els.forEach(function (el) { el.classList.add("is-in"); });
-      } else {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              e.target.classList.add("is-in");
-              io.unobserve(e.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
-        els.forEach(function (el) { io.observe(el); });
-      }
-    })();
-  </script>
 </body>
 </html>
